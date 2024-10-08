@@ -1,0 +1,24 @@
+<form (ngSubmit)="onSubmit(signupForm)" #signupForm="ngForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput name="name" ngModel required>
+    <mat-error *ngIf="signupForm.controls['name']?.invalid && signupForm.controls['name']?.touched">
+      Name is required.
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput name="email" ngModel required email>
+    <mat-error *ngIf="signupForm.controls['email']?.invalid && signupForm.controls['email']?.touched">
+      Please enter a valid email.
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput name="password" ngModel required>
+    <mat-error *ngIf="signupForm.controls['password']?.invalid && signupForm.controls['password']?.touched">
+      Password is required.
+    </mat-error>
+  </mat-form-field>
+  <button mat-raised-button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+</form>
